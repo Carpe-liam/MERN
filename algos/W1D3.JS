@@ -23,4 +23,4 @@ function insertionSort(nums) {
     }
     return nums
 }
-console.log(insertionSort(expected))
+console.log(insertionSort(numsRandomOrder))
