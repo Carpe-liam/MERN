@@ -5,16 +5,19 @@ class PersonComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            age: 15
+            aged: this.props.age
         }
     }
 
     birthday = () => {
-        this.setState({ age: ++this.state.age})
+        this.setState({ 
+            aged: this.state.aged +1
+        })
     }
 
     render(){
         const{ firstName, lastName, age, hairColor} = this.props
+        
         return(
             <div id="cards">
                 <fieldset>
