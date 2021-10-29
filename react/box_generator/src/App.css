@@ -1,0 +1,47 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  align-content: center;
+}
+
+.App {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+#enter{
+  border: none;
+  border-radius: 5px;
+  background: lightgrey;
+  padding: 8px;
+
+}
+
+
+#button{
+  margin-left: 10px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background:coral;
+}
+
+#boxes{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+#box{
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  height: 100px;
+  width: 100px;
+  border: black solid 1px;
+  border-radius: 5px;
+  vertical-align: middle;
+  background: aquamarine;
+}
