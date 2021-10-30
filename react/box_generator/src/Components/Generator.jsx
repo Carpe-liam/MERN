@@ -3,24 +3,25 @@ import React, { useState } from 'react'
 
 const Generator = () => {
     
-    const [colors, setColors] = useState([])
-
     const [color, setColor] = useState("")
+    const [len, setLen] = useState()
+    const [lens, setLens] = useState([])
+    const [colors, setColors] = useState([])
 
 
     const createColor = (e) => {
         e.preventDefault()
 
         const newColor = { color }
-        setColors(...colors, newColor.color)
+        setColors([...colors, color])
+        // reset textbox
         setColor("")
 
-        console.log(newColor)
+        console.log("NewColor: " + newColor.color)
         console.log(colors)
+        console.log(lens)
     }
 
-    const box = {
-    }
     const boxStyle = {
         marginTop: '30px',
         marginLeft: '15px',
@@ -29,21 +30,20 @@ const Generator = () => {
         width: '100px',
         border:' black solid 1px',
         borderRadius: '5px',
-        verticalAlign: 'middle',
-        background: color
+        verticalAlign: 'middle'
     }
 
 
     return (
         <div>
             <form onSubmit={ createColor }>
-                <label> Color </label>
+                <label> Color: </label>
                 <input id="enter" type="text"  onChange={ (e) => setColor(e.target.value)} value={color} />
                 <input id='button' type="submit" value="Add Box" />
             </form>
             <div id="boxes">
                 { colors.map( (color, keyId)  =>
-                <div key={keyId}> <p style={boxStyle}>{color}</p> </div> 
+                <div key={keyId}> <p style={{...boxStyle, backgroundColor: color}}>{color}</p> </div> 
                 ) }
             </div>
         </div>
