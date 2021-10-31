@@ -32,7 +32,7 @@
 	npx tailwindcss-cli@latest init >> will create 'tailwind.config.js'
 	copy >> paste: 
 	module.exports = {
-	  purge: [],
+	  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],,
 	  darkMode: false, // or 'media' or 'class'
 	  theme: {
 		extend: {},
@@ -44,17 +44,13 @@
 	}
 	
 ## Step 6 ==========
-	in 'tailwind.config.js' >> replace purge: [] with: 
-	purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-	
-## Step 7 ==========
 	open './src/index.css' 
 	replace file contents with >>
 		@tailwind base;
 		@tailwind components;
 		@tailwind utilities;
 
-## Step 8 =========
+## Step 7 =========
 	make sure you have >> import './index.css' 
 	should be located in src/index.js
 
