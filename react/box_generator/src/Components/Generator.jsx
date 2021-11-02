@@ -4,11 +4,11 @@ import React, { useState } from 'react'
 const Generator = () => {
     
     const [color, setColor] = useState("")
-    const [len, setLen] = useState()
     const [lens, setLens] = useState([])
+    
+    
+    // const [len, setLen] = useState()
     const [colors, setColors] = useState([])
-
-
     const createColor = (e) => {
         e.preventDefault()
 
@@ -21,6 +21,7 @@ const Generator = () => {
         console.log(colors)
         console.log(lens)
     }
+
 
     const boxStyle = {
         marginTop: '30px',
@@ -42,8 +43,8 @@ const Generator = () => {
                 <input id='button' type="submit" value="Add Box" />
             </form>
             <div id="boxes">
-                { colors.map( (color, keyId)  =>
-                <div key={keyId}> <p style={{...boxStyle, backgroundColor: color}}>{color}</p> </div> 
+                { colors.map( (color, colorsIndex)  =>
+                <div key={colorsIndex}> <p style={{...boxStyle, backgroundColor: color}}>{color}</p> </div> 
                 ) }
             </div>
         </div>
@@ -51,4 +52,3 @@ const Generator = () => {
 }
 
 export default Generator;
-
