@@ -1,14 +1,14 @@
-import React from 'react'
 // ========= IMPORTS ==========
-//import {useState} from 'react'
+import React from 'react'
+//import {useState, useEffect} from 'react'
+//import { useParams } from 'react-router'
 
 const {{name-me}} = () => {
 
 // ======== VARIABLES =========
 
-// ======== FUNCTIONS ==========
 
-    // +++ HANDLERS +++
+// ======== FUNCTIONS|HANDLERS ==========
 
 
 // ======== DISPLAY OUT ========

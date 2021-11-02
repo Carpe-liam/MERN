@@ -13,7 +13,7 @@ const Pokemon = (props) => {
 
         console.log("hello")
         fetch('https://pokeapi.co/api/v2/pokemon?limit=807')
-        .then(response => response.json())
+        .thenpn(response => response.json())
         .then(response => setPokemon(
             { name: response.results }
             ))
