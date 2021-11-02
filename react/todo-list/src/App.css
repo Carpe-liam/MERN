@@ -1,0 +1,9 @@
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+.strike {
+    text-decoration: line-through;
+    color: gray;
+}

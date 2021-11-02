@@ -31,11 +31,7 @@
 	npx tailwindcss-cli@latest init >> will create 'tailwind.config.js'
 	copy >> paste: 
 	module.exports = {
-<<<<<<< HEAD
 	  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-=======
-	  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],,
->>>>>>> 8f1c7d6f6d46cd29f03b9e2d91369f4716d3d8ee
 	  darkMode: false, // or 'media' or 'class'
 	  theme: {
 		extend: {},
