@@ -17,14 +17,14 @@
 	create 'craco.config.js' in root folder
 	copy >> paste: 
 	module.exports = {
-	  style: {
-		postcss: {
-		  plugins: [
-			require('tailwindcss'),
-			require('autoprefixer'),
-		  ],
+		style: {
+			postcss: {
+				plugins: [
+				require('tailwindcss'),
+				require('autoprefixer'),
+				],
+			},
 		},
-	  },
 	}
 	
 ## Step 5 ========
@@ -52,6 +52,10 @@
 ## Step 7 =========
 	make sure you have >> import './index.css' 
 	should be located in src/index.js
+
+## Step 8 =========
+	npm install axios
+	npm install react-router-dom
 
 
 # ALL DONE!
