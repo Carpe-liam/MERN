@@ -26,22 +26,35 @@ const expected3 = [1, 5];
  * @returns {Array<number>} The two indexes of the numbers in the given nums
  *    that add up to the targetSum.
  */
-function twoSum(nums, targetSum) {
-    let sumIdx = []
-    for(i=0; i<nums.length; i++){
-        console.log("I: " + i);
-        for(x=1; x<nums.length; x++){
-            console.log("X: " + x);
-            if(i == x) {
-                break;
-            }
-            if(nums[i] + nums[x] == targetSum){
-                sumIdx.push(i, x)
-                console.log("n[i]: " + nums[i]);
-                console.log("n[x]: " + nums[x]);
-            }
-        }
-    }
-    return sumIdx;
-}
+
+// function twoSum(nums, targetSum) {
+//     let sumIdx = []
+//     for(i=0; i<nums.length; i++){
+//         console.log("I: " + i);
+//         for(x=1; x<nums.length; x++){
+//             console.log("X: " + x);
+//             if(i == x) {
+//                 break;
+//             }
+//             if(nums[i] + nums[x] == targetSum){
+//                 sumIdx.push(i, x)
+//                 console.log("n[i]: " + nums[i]);
+//                 console.log("n[x]: " + nums[x]);
+//             }
+//         }
+//     }
+//     return sumIdx;
+// }
 console.log(twoSum(nums1, targetSum1))
+
+function twoSum(nums, targetSum) {
+    let d = {}
+    let diff
+    for (let i = 0; i < nums.length; i++) {
+        diff = targetSum - nums[i]
+        if (diff in d) {
+            return [d[diff], i]
+        }
+        d[nums[i]] = i
+    }
+}

@@ -33,4 +33,26 @@ a valid solution. Since 1, 2, and 3, all occur 3 times, they are all the most fr
  * @param {number} k Represents the amount of numbers that should be returned.
  * @returns {Array<number>} The k most frequently occurring numbers.
  */
-function kMostFrequent(nums, k) {}
+function kMostFrequent(nums, k) {
+    let answer = [];
+    let counts = {};
+    nums.forEach(num => counts[num] ? counts[num]++ : counts[num] = 1)
+    for (let i = 0; i < k; i++) {
+        let temp = 0;
+        let number
+        for (key in counts) {
+            if(counts[key] > temp){
+                temp = counts[key];
+                number = key;
+            }
+        }
+        delete counts[number];
+        answer.push(number);
+    }
+    return answer;
+}
+
+console.log(kMostFrequent(nums1, k1));
+console.log(kMostFrequent(nums2, k2));
+console.log(kMostFrequent(nums3, k3));
+console.log(kMostFrequent(nums4, k4));

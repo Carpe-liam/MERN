@@ -129,4 +129,4 @@ function orderedMultisetUnion(sortedA, sortedB) {
 }
 
 
-orderedMultisetUnion(numsA1, numsB1)
+console.log(orderedMultisetUnion(numsA1, numsB1))
