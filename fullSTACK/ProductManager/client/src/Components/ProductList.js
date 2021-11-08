@@ -1,16 +1,18 @@
 import axios from 'axios'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import DeleteButton from './DeleteButton'
 
 const ProductList = (props) => { 
 
     const { removeFromDom } = props
+    const history = useHistory()
 
     const deleteProduct = ( productId ) => {
         axios.delete('http://localhost:8000/api/product/' + productId)
             .then(response => { 
                 removeFromDom( productId ) 
-            })
+            }, history.push('/api/products'))
             .catch(err => console.log(err))
     }
 
@@ -20,8 +22,8 @@ const ProductList = (props) => {
                 return (
                     <div>
                         <h3>
-                            <button onClick={ (e)=> {deleteProduct(product._id) } }> Delete </button>
                             <Link to={product._id} key={index}> {product.title} </Link>
+                            <DeleteButton productId={product.id} successCallback={()=> removeFromDom(product._id)} /> 
                         </h3>
                     </div>
                 )

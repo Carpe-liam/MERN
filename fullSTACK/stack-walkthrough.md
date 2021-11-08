@@ -218,7 +218,7 @@
 
 5. Add routes to `thing.routes.js` to allow functionality:
     ``` js
-    const ThingController = require("..Controllers/thing.controller")
+    const ThingController = require("..controllers/thing.controller")
 
     module.exports = function(app) {
         // CREATE

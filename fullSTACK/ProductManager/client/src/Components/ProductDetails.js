@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 const ProductDetail = (props) => {
     const [product, setProduct] = useState({})
     const { id } = useParams();
     const {removeFromDom} = props
+    const history = useHistory()
     
     useEffect(() => {
         axios.get('http://localhost:8000/api/' +id)
@@ -18,7 +19,7 @@ const ProductDetail = (props) => {
             .then(response => { 
                 removeFromDom( productId ) 
             },
-            axios.get('/api/products')
+            history.push('/api/products')
             )
             .catch(err => console.log(err))
     }

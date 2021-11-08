@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 const ProductForm = (props) => {
     const [ title, setTitle ] = useState("")
     const [ price, setPrice ] = useState("")
     const [ description, setDescription ] = useState("")
+    const history = useHistory()
+    
 
     const onSubmitHandler = e => {
         e.preventDefault()
@@ -14,8 +17,9 @@ const ProductForm = (props) => {
             price,
             description
         })
-            .then(response => console.log("Response: ", response), setTitle(""), setPrice(""), setDescription(""))
+            .then(response => console.log("Response: ", response), setTitle(""), setPrice(""), setDescription(""), props.changeDom())
             .catch(error => console.log("Error: ", error))
+        
     }
 
 
