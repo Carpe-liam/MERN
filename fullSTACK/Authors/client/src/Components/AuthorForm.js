@@ -7,19 +7,33 @@ const AuthorForm = (props) => {
     const [lastName, setLastName] = useState('')
     const history = useHistory()
 
+    //ARRAY FOR ERRORS
+    const [errors, setErrors] = useState([])
+
     const formSubmit = e => {
         e.preventDefault()
-        
-        axios.post('http://localhost:8000/authors/new', {
+        const formData = {
             firstName,
             lastName
-        })
-            .then(response => console.log(response), history.push('/authors'))
+        }
+        
+        axios.post('http://localhost:8000/authors/new', formData)
+            // SUCCESS POST
+            .then(response => {
+                console.log(response)
+                setErrors([])
+                history.push('/authors')
+            })
+            // FAIL POST
             .catch(err => {
-                const errorResponse  = err.response.data.error
-                console.log(err)
+                const errorResponse  = err.response.data.errors
+                console.log(errorResponse)
                 const errorArr = []
-
+                // LOOP THROUGH ALL ERRORS AND GET MESSAGES
+                for (const key of Object.keys(errorResponse)) {
+                    errorArr.push(errorResponse[key].message)
+                }
+                setErrors(errorArr)
             })
     }
 
@@ -36,6 +50,7 @@ const AuthorForm = (props) => {
                 </p>
                 <input type="submit" value="Create" />
             </form>
+            {errors.map((err, index) => <p key={index} className="text-danger">{err}</p>)}
         </div>
     )
 }

@@ -8,6 +8,9 @@ const UpdateAuthor = (props) => {
     const [lastName, setLastName] = useState('')
     const history = useHistory()
 
+    //ARRAY FOR ERRORS
+    const [errors, setErrors] = useState([])
+
     console.log(id)
 
     useEffect(() => {
@@ -20,12 +23,29 @@ const UpdateAuthor = (props) => {
 
     const updateAuthorHandler = e => {
         e.preventDefault()
-        axios.put('http://localhost:8000/authors/'+id, {
+        const formData = {
             firstName,
             lastName
-        })
-            .then(res => console.log(res), history.push('/authors'))
-            .catch(err => console.log(err))
+        }
+        
+        axios.put('http://localhost:8000/authors/'+id, formData)
+            // SUCCESS POST
+            .then(response => {
+                console.log(response)
+                setErrors([])
+                history.push('/authors')
+            })
+            // FAIL POST
+            .catch(err => {
+                const errorResponse  = err.response.data.errors
+                console.log(errorResponse)
+                const errorArr = []
+                // LOOP THROUGH ALL ERRORS AND GET MESSAGES
+                for (const key of Object.keys(errorResponse)) {
+                    errorArr.push(errorResponse[key].message)
+                }
+                setErrors(errorArr)
+            })
     }
     
     return (
@@ -49,6 +69,7 @@ const UpdateAuthor = (props) => {
                 </p>
                 <input type="submit" value="Submit" />
             </form>
+            {errors.map((err, index) => <p key={index} className="text-danger">{err}</p>)}
         </div>
     )
 }

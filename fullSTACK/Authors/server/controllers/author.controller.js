@@ -9,7 +9,10 @@ module.exports.createAuthor = (req, res) => {
         lastName
     })
         .then(author => res.json(author))
-        .catch(err => res.status(400).json(err))
+        .catch(err => {
+            console.log("Validation Failed")
+            res.status(400).json(err)
+        })
 }
 // ===== READ =====
 module.exports.getAllAuthors = (req, res) => {
@@ -25,14 +28,17 @@ module.exports.getAuthor = (req, res) => {
 }
 // ==== UPDATE ====
 module.exports.updateAuthor = (req, res) => {
-    Author.findOneAndUpdate({ _id: req.params.id }, req.body, {new: true})
+    Author.findByIdAndUpdate({ _id: req.params.id }, req.body, {runValidators: true, new: true})
         .then(updatedAuthor => res.json(updatedAuthor))
-        .catch(err => res.json(err))
+        .catch(err => res.status(400).json(err))
 }
 
 // ==== DELETE ====
 module.exports.deleteAuthor = (req, res) => {
     Author.deleteOne({ _id: req.params.id })
         .then(deleteConf => res.json(deleteConf))
-        .catch(err => res.json(err))
+        .catch(err => {
+            console.log("Validation Failed")
+            res.status(400).json(err)
+        })
 }
