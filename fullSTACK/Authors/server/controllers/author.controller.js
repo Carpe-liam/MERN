@@ -16,7 +16,9 @@ module.exports.createAuthor = (req, res) => {
 }
 // ===== READ =====
 module.exports.getAllAuthors = (req, res) => {
-    Author.find()
+    // SORTS BY FIRST NAME; CHANGE KEYNAME TO CHANGE SORTING, -1 IS TO REVERSE SORT
+    Author.find().collation({locale:'en',strength: 2}).sort({firstName:1})
+
         .then(authors => res.json(authors))
         .catch(err=> res.json(err))
 }
