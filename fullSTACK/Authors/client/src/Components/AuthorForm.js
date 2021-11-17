@@ -56,3 +56,5 @@ const AuthorForm = (props) => {
 }
 
 export default AuthorForm
+
+// Player.find().collation({locale:'en',strength: 2}).sort({name:1})
