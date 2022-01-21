@@ -4,11 +4,8 @@ import React, { useState } from 'react'
 const Generator = () => {
     
     const [color, setColor] = useState("")
-    const [lens, setLens] = useState([])
-    
-    
-    // const [len, setLen] = useState()
     const [colors, setColors] = useState([])
+    
     const createColor = (e) => {
         e.preventDefault()
 
