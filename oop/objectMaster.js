@@ -50,8 +50,8 @@ const poisonPkmn = pokémon.filter( pokémon => pokémon.types.includes("poison"
 
 // ==== array of PKMN >> 
 const sndFlyPkmn = pokémon.filter( pokémon => pokémon.types[1] == "flying").map (pokémon => pokémon.types[0])
-//console.log(sndFlyPkmn)
+console.log(sndFlyPkmn)
 
 // ==== cound of normal type pokemon
 const countNormPkmn = pokémon.filter( pokémon => pokémon.types.includes("normal")).length
-console.log(countNormPkmn)
+//console.log(countNormPkmn)
